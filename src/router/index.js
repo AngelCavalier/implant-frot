@@ -4,7 +4,10 @@ import VueRouter from "vue-router";
 const Layout = () => import("views/layout")
 const Home = () => import("views/home");
 const AddMedical = () => import("views/addMedical")
-const Consent = () => import("views/consent")
+const AddConsent = () => import("views/addConsent")
+const AddAttention = () => import("views/addAttention")
+const AddInformation = () => import("views/addInformation")
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -24,9 +27,17 @@ const routes = [
       component: AddMedical,
       meta: ['添加数据', '添加种植病历'],
     }, {
-      path: '/consent',
-      component: Consent,
+      path: '/addConsent',
+      component: AddConsent,
       meta: ['添加数据', '添加知情同意书'],
+    }, {
+      path: '/addAttention',
+      component: AddAttention,
+      meta: ['添加数据', '添加术后注意事项'],
+    }, {
+      path: '/addInformation',
+      component: AddInformation,
+      meta: ['添加数据', '添加一般资料'],
     },
     ]
   }

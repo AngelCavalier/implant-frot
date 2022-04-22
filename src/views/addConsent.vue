@@ -70,7 +70,7 @@
 
 <script>
 export default {
-  name: 'consent',
+  name: 'addConsent',
   data() {
     return {
       doctor: '',
@@ -103,28 +103,28 @@ export default {
 }
 </script>
 
-<style lang="less">
-.operation {
-  margin: 5px;
-  .print,
-  .submit {
-    float: right;
-    margin-right: 10px;
-  }
-}
+<style lang="less" scoped>
 .container {
   display: flex;
   flex-direction: column;
 }
-.header {
-  font-size: 20px;
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 10px;
+.operation {
+  margin: 5px;
+  position: absolute;
+  right: 5px;
+  .print,
+  .submit {
+    margin-right: 10px;
+  }
 }
 .content {
   margin: auto;
   padding: 0 30px;
+  .header {
+    font-size: 20px;
+    text-align: center;
+    margin: 30px 0;
+  }
   .indent {
     margin-left: -18px;
   }
@@ -173,13 +173,13 @@ export default {
   margin-bottom: 50px;
   .date1 {
     span {
-      margin-right: 10px;
+      margin-right: 15x;
     }
   }
   .date2 {
-    margin-left: 222px;
+    margin-left: 262px;
     span {
-      margin-right: 10px;
+      margin-right: 15px;
     }
   }
 }

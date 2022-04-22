@@ -25,7 +25,9 @@
               <i class="el-icon-plus"></i>添加数据
             </template>
             <el-menu-item index="addMedical">添加种植病历</el-menu-item>
-            <el-menu-item index="consent">添加知情同意书</el-menu-item>
+            <el-menu-item index="addConsent">添加知情同意书</el-menu-item>
+            <el-menu-item index="addAttention">添加术后注意事项</el-menu-item>
+            <el-menu-item index="addInformation">添加术一般资料</el-menu-item>
             <!-- <el-menu-item index="addOthers">添加其他资料</el-menu-item> -->
           </el-submenu>
           <el-submenu index="4">
@@ -71,7 +73,7 @@ export default {
 </script>
 
 
-<style lang="less" scoped>
+<style lang="less" >
 .container {
   width: 100%;
   height: 100%;
