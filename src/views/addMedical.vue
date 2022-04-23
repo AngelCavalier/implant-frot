@@ -1,12 +1,8 @@
 <template>
   <div class="container">
     <div class="repair-course">
-      <div class="operation">
-        <el-checkbox v-model="isAll" label="全选" border></el-checkbox>
-        <el-button type="primary" size="medium" v-print="printObj" class="print">打印</el-button>
-        <el-button type="primary" size="medium" @click="submit" class="submit">提交</el-button>
-      </div>
-
+      <el-checkbox v-model="isAll" label="全选" border style="marginTop: 5px;"></el-checkbox>
+      <Operation />
       <div id="printMe">
         <header class="form-header">种植修复疗程</header>
         <table class="table" border="1" cellspacing="0">
@@ -114,8 +110,10 @@
 </template>
 
 <script>
+import Operation from '../components/Operation'
 export default {
   name: 'addMedical',
+  components: { Operation },
   data() {
     return {
       checkList: {
@@ -240,24 +238,6 @@ export default {
           },
         ],
       },
-      printLoading: true,
-      printObj: {
-        id: 'printMe',
-        popTitle: 'good print',
-        preview: false,
-        extraCss:
-          'https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.compat.css, https://cdn.bootcdn.net/ajax/libs/hover.css/2.3.1/css/hover-min.css',
-        extraHead: '<meta http-equiv="Content-Language"content="zh-cn"/>',
-        beforeOpenCallback() {
-          console.log('打开之前')
-        },
-        openCallback() {
-          console.log('执行了打印')
-        },
-        closeCallback() {
-          console.log('关闭了打印工具')
-        },
-      },
     }
   },
   computed: {
@@ -291,14 +271,9 @@ export default {
 }
 </script>
 
-<style lang="less" >
-.operation {
-  margin: 5px;
-  .print,
-  .submit {
-    float: right;
-    margin-right: 10px;
-  }
+<style lang="less" scoped>
+.container {
+  position: relative;
 }
 .repair-course {
   padding: 0 20px;

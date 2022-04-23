@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <div class="operation">
-      <el-button type="primary" size="medium" v-print="printObj" class="print">打印</el-button>
-      <el-button type="primary" size="medium" @click="submit" class="submit">提交</el-button>
-    </div>
-    <div id="printMe" class="container">
+  <div class="container">
+    <Operation />
+    <div id="printMe">
       <header class="header">一般资料</header>
       <div class="top">
         <el-form ref="form" :model="form" label-width="130px" class="top-form">
@@ -61,14 +58,47 @@
       </div>
       <div class="middle">（以上由患者填写）</div>
       <div class="middleLine"></div>
-      <div class="bottom"></div>
+      <div class="bottom">
+        <el-form ref="form" :model="formBottom" label-width="130px" class="bottom-form">
+          <el-form-item label="手术时间：" class="form-item">
+            <el-input v-model="formBottom.operYear" class="short-input"></el-input>年
+            <el-input v-model="formBottom.operMonth" class="short-input"></el-input>月
+            <el-input v-model="formBottom.operDay" class="short-input"></el-input>日
+            <el-input v-model="formBottom.operHour" class="short-input"></el-input>时
+          </el-form-item>
+          <el-form-item label="恢复时间：" class="form-item">
+            <el-input v-model="formBottom.fixYear" class="short-input"></el-input>年
+            <el-input v-model="formBottom.fixMonth" class="short-input"></el-input>月
+            <el-input v-model="formBottom.fixDay" class="short-input"></el-input>日
+            <el-input v-model="formBottom.fixHour" class="short-input"></el-input>时
+          </el-form-item>
+          <el-form-item label="首诊医生：">
+            <el-input v-model="formBottom.firstDocor" class="short"></el-input>
+          </el-form-item>
+          <el-form-item label="首诊护士：">
+            <el-input v-model="formBottom.firstNurse" class="short"></el-input>
+          </el-form-item>
+          <el-form-item label="临床路径：">
+            <el-input
+              type="textarea"
+              :rows="7"
+              placeholder
+              v-model="formBottom.clinicalPathway"
+              style="width: 544px;"
+            ></el-input>
+          </el-form-item>
+        </el-form>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Operation from '../components/Operation'
+
 export default {
   name: 'addInformation',
+  components: { Operation },
   data() {
     return {
       form: {
@@ -86,23 +116,18 @@ export default {
         user2: '',
         tel2: '',
       },
-      printLoading: true,
-      printObj: {
-        id: 'printMe',
-        popTitle: 'good print',
-        preview: false,
-        extraCss:
-          'https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.compat.css, https://cdn.bootcdn.net/ajax/libs/hover.css/2.3.1/css/hover-min.css',
-        extraHead: '<meta http-equiv="Content-Language"content="zh-cn"/>',
-        beforeOpenCallback() {
-          console.log('打开之前')
-        },
-        openCallback() {
-          console.log('执行了打印')
-        },
-        closeCallback() {
-          console.log('关闭了打印工具')
-        },
+      formBottom: {
+        operYear: '',
+        operMonth: '',
+        operDay: '',
+        operHour: '',
+        fixYear: '',
+        fixMonth: '',
+        fixDay: '',
+        fixHour: '',
+        firstDocor: '',
+        firstNurse: '',
+        clinicalPathway: '',
       },
     }
   },
@@ -110,13 +135,15 @@ export default {
 </script>
 
 <style lang="less">
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
 .header {
   font-size: 20px;
   text-align: center;
   margin: 30px 0;
-}
-.container {
-  position: relative;
 }
 .top {
   display: flex;
@@ -124,6 +151,20 @@ export default {
   align-items: center;
   .top-form {
     width: 800px;
+  }
+  .short {
+    width: 544px;
+  }
+}
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .bottom-form {
+    width: 800px;
+  }
+  .short-input {
+    width: 100px;
   }
   .short {
     width: 544px;
