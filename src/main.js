@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import ElementUI from 'element-ui';
-import Print from 'vue-print-nb'
+import Print from './utils/vue-print-nb/src/'
 
 Vue.config.productionTip = false
 
