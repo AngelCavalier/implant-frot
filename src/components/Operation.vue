@@ -7,12 +7,13 @@
 
 <script>
 export default {
+  props: ['message'],
   data() {
     return {
       printLoading: true,
       printObj: {
         id: 'printMe',
-        popTitle: 'good print',
+        // popTitle: 'C-TECH',
         preview: false,
         extraCss:
           'https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.1/animate.compat.css, https://cdn.bootcdn.net/ajax/libs/hover.css/2.3.1/css/hover-min.css',
@@ -30,7 +31,9 @@ export default {
     }
   },
   methods: {
-    submit() {},
+    submit() {
+      console.log(this.message)
+    },
   },
 }
 </script>

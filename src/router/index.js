@@ -7,6 +7,12 @@ const AddMedical = () => import("views/addMedical")
 const AddConsent = () => import("views/addConsent")
 const AddAttention = () => import("views/addAttention")
 const AddInformation = () => import("views/addInformation")
+const AddPreCheck = () => import("views/addPreCheck")
+const AddOperationRecords = () => import("views/addOperationRecords")
+const AddSecondOperation = () => import("views/addSecondOperation")
+const AddRepair = () => import("views/addRepair")
+const AddCheckAgain = () => import("views/addCheckAgain")
+
 
 Vue.use(VueRouter);
 
@@ -38,6 +44,26 @@ const routes = [
       path: '/addInformation',
       component: AddInformation,
       meta: ['添加数据', '添加一般资料'],
+    }, {
+      path: '/addPreCheck',
+      component: AddPreCheck,
+      meta: ['添加数据', '添加术前检查'],
+    }, {
+      path: '/addOperationRecords',
+      component: AddOperationRecords,
+      meta: ['添加数据', '添加种植手术记录'],
+    }, {
+      path: '/addSecondOperation',
+      component: AddSecondOperation,
+      meta: ['添加数据', '添加种植二期手术'],
+    }, {
+      path: '/addRepair',
+      component: AddRepair,
+      meta: ['添加数据', '添加种植修复治疗'],
+    }, {
+      path: '/addCheckAgain',
+      component: AddCheckAgain,
+      meta: ['添加数据', '添加种植修复后复查'],
     },
     ]
   }
