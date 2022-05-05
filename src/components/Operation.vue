@@ -1,13 +1,11 @@
 <template>
   <div class="operation">
     <el-button type="primary" size="medium" v-print="printObj" class="print">打印</el-button>
-    <el-button type="primary" size="medium" @click="submit" class="submit">提交</el-button>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['message'],
   data() {
     return {
       printLoading: true,
@@ -30,11 +28,7 @@ export default {
       },
     }
   },
-  methods: {
-    submit() {
-      console.log(this.message)
-    },
-  },
+  methods: {},
 }
 </script>
 
@@ -44,8 +38,7 @@ export default {
   position: absolute;
   top: 5px;
   right: 5px;
-  .print,
-  .submit {
+  .print {
     margin-right: 10px;
   }
 }
